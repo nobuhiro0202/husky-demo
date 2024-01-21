@@ -1,7 +1,15 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# 変更があるファイルが src/ ディレクトリ以下かどうかを確認
 changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep -v '^src/\.vue\|\.js')
-npm run format
-npm run lint:fix
-git add $changed_files
+
+if [ -n "$changed_files" ]; then
+  # 変更がある場合のみフォーマットと lint を実行
+  npm run format
+  npm run lint:fix
+  git add $changed_files
+else
+  # 変更がない場合はメッセージを表示してコミットをスキップ
+  echo "No changes in files under the src/ directory. Skipping lint and format checks."
+fi
