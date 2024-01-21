@@ -9,7 +9,7 @@ npm run lint:fix
 
 git add $changed_files
 
-updated_files=$(git diff --cached --name-only --diff-filter=ACM | grep -v '^src/\.vue\|\.js')
+updated_files=$(git diff --cached --name-only --diff-filter=ACM | grep -v '^src/\.vue\|\.js' || true)
 
 if [ -z "$updated_files" ]; then
   echo "No changes were found." && exit 1
