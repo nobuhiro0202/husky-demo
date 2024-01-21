@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "prettier --write src/ && eslint src/**/*.{vue,js}",
-    "lint:fix": "prettier --write src/ && eslint src/**/*.{vue,js} --fix",
-    "prepare": "husky install"
+    "lint": "eslint src/**/*.{vue,js}",
+    "lint:fix": "eslint src/**/*.{vue,js} --fix",
+    "format": "prettier --write src/",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "vue": "^3.3.11"
@@ -22,9 +24,10 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.20.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "prettier": "^3.0.3",
     "vite": "^5.0.10",
-    "vue-eslint-parser": "^9.4.0",
-    "husky": "^8.0.0"
+    "vue-eslint-parser": "^9.4.0"
   }
 }
