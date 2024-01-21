@@ -10,8 +10,7 @@
     "lint": "eslint src/**/*.{vue,js}",
     "lint:fix": "eslint src/**/*.{vue,js} --fix",
     "format": "prettier --write src/",
-    "prepare": "husky install",
-    "precommit": "lint-staged"
+    "prepare": "husky install"
   },
   "dependencies": {
     "vue": "^3.3.11"
