@@ -11,5 +11,5 @@ git add $changed_files
 updated_files=$(git diff --cached --name-only --diff-filter=ACM | grep -v '^src/\.vue\|\.js' || true)
 
 if [ -z "$updated_files" ]; then
-  echo "No changes were found." && exit 1
+  echo -e "\033[0;32mNo changes were found.\033[0m" && exit 1
 fi
