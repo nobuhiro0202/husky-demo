@@ -9,5 +9,5 @@ git add $changed_files
 updated_files=$(git diff --cached --name-only --diff-filter=ACM | grep -v '^src/\.vue\|\.js')
 
 if [ -z "$updated_files" ]; then
-  echo "No changes in files under the src/ directory. Skipping lint and format checks."
+  echo "No changes in files under the src/ directory."
 fi
