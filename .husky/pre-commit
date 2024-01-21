@@ -1,6 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run format
-npm run lint:fix
-git add .
+# 変更があるファイルのみを対象にして format と lint:fix を実行
+git diff --cached --name-only --diff-filter=ACM | grep '\.vue\|\.js' | xargs npm run format
+git diff --cached --name-only --diff-filter=ACM | grep '\.vue\|\.js' | xargs npm run lint:fix
+
+# 変更があるファイルのみを git add
+git diff --cached --exit-code --quiet || git add .
